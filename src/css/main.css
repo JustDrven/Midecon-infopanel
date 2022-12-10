@@ -42,7 +42,10 @@ body {
 
   .info {
     padding: 2rem 2rem;
+  }
 
+  .stats {
+    padding: 2rem 2rem;
   }
 
   .center {
