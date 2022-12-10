@@ -39,3 +39,12 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .info {
+    padding: 2rem 2rem;
+
+  }
+
+  .center {
+    text-align: center;
+  }
