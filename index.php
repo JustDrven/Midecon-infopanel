@@ -12,26 +12,35 @@
 
     <?php
 
+        $_GET["error"] = "null";
 
         if ($_GET["error"] == "empty") {
             echo "<div class=\"error\">
             <p>Je nám líto, ale musíš vyplnit udaje</p>
+        </div>
+        <div class=\"card\">
+            <div class=\"login\">
+                <img src=\"./src/images/logo.png\" alt=\"Logo Midecon\">
+                <form action=\"./util.php\" method=\"post\">
+                    <input type=\"text\" name=\"user\" placeholder=\"Herní jméno\"> <br>
+                    <input type=\"password\" name=\"pass\" placeholder=\"Herní heslo\"> <br>
+                    <input type=\"submit\" name=\"submit\" value=\"Přihlásit se\">
+                </form>
+            </div>
         </div>";
         } else {
-            
+            echo "<div class=\"card\">
+            <div class=\"login\">
+                <img src=\"./src/images/logo.png\" alt=\"Logo Midecon\">
+                <form action=\"./util.php\" method=\"post\">
+                    <input type=\"text\" name=\"user\" placeholder=\"Herní jméno\"> <br>
+                    <input type=\"password\" name=\"pass\" placeholder=\"Herní heslo\"> <br>
+                    <input type=\"submit\" name=\"submit\" value=\"Přihlásit se\">
+                </form>
+            </div>
+        </div>";
         }
     ?>
-
-    <div class="card">
-        <div class="login">
-            <img src="./src/images/logo.png" alt="Logo Midecon">
-            <form action="./util.php" method="post">
-                <input type="text" name="user" placeholder="Herní jméno"> <br>
-                <input type="password" name="pass" placeholder="Herní heslo"> <br>
-                <input type="submit" name="submit" value="Přihlásit se">
-            </form>
-        </div>
-    </div>
 
 
 </body>
