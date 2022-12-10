@@ -26,9 +26,25 @@ if(isset($_POST["submit"])) {
             $_SESSION["BungeeRank"] = $row["rank"];
             $_SESSION["BungeeUUID"] = $row["uuid"];
             $_SESSION["BungeeName"] = $row["name"];
+            $_SESSION["BungeeAutoLogin"] = false;
         }
 
         header("Location: panel.php"); 
     }
 
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=http://localhost/panelMidecon/index.php">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midecon.eu | Security</title>
+</head>
+<body>
+    
+</body>
+</html>
