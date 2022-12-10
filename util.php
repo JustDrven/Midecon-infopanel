@@ -10,8 +10,11 @@ if(isset($_POST["submit"])) {
     $user = $_POST["user"];
     $pass = $_POST["pass"];
 
+    $user = mysqli_real_escape_string($conn, $user);
+    $pass = mysqli_real_escape_string($conn, $pass);
+
     if (empty($pass) || empty($user) ) {
-        
+
         $_GET["error"] = "empty";
 
         header("Location: index.php?error=empty");

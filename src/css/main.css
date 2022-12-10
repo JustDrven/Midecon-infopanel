@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  background: rgb(255, 255, 255);
 }
 
 .navigation {
@@ -30,4 +31,11 @@ body {
     padding: 1rem;
     user-select: none;
     pointer-events: none;
+  }
+
+  .tickets-list {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

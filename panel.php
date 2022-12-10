@@ -14,19 +14,23 @@
     <div>
         <?php session_start();
 
+            if (isset($_SESSION["BungeeUUID"])) {
 
-            echo "<nav class='navigation'>";
-            echo "<div class='logo'>";
-            echo "<img src='./src/images/logo.png' alt='Logo'>";
-            echo "</div>";
-            echo "<div class='card-infopanel'>";
-            echo "<img src=\"https://visage.surgeplay.com/bust/96/". $_SESSION["BungeeUUID"] ."\" alt=\"Logo\">";
-            echo "<div class='card-infopanel-text'>";
-            echo "<p>".$_SESSION["BungeeName"]. "</p>";
-            echo "<p class=" . $_SESSION["BungeeRank"] . ">". $_SESSION["BungeeRank"], "</p>";
-            echo "</div>";
-            echo "</div>";
-            echo "</nav>";
+                echo "<nav class='navigation'>";
+                echo "<div class='logo'>";
+                echo "<img src='./src/images/logo.png' alt='Logo'>";
+                echo "</div>";
+                echo "<div class='card-infopanel'>";
+                echo "<img src=\"https://visage.surgeplay.com/bust/96/". $_SESSION["BungeeUUID"] ."\" alt=\"Logo\">";
+                echo "<div class='card-infopanel-text'>";
+                echo "<p>".$_SESSION["BungeeName"]. "</p>";
+                echo "<p class=" . $_SESSION["BungeeRank"] . ">". $_SESSION["BungeeRank"], "</p>";
+                echo "</div>";
+                echo "</div>";
+                echo "</nav>";
+            } else {
+                header("Location: index.php?error=NOLogged");
+            }
         ?>
     </div>
     <?php 
