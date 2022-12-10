@@ -39,13 +39,42 @@
 
         <?php
 
-            // $ranks = array("Majitel", "Leader");
-
             $rank = [
+                    "full" => [
+                        "Owner",
+                        "Leader",
+                        "Developer"
+                    ],
                     "helpers" => [
-                        "Majitel",
-                        "Leader"
+                        "Owner",
+                        "Leader",
+                        "Developer",
+                        "Hl.Helper",
+                        "El.Helper",
+                        "Helper",
+                        "Zk.Helper"
+                    ],
+                    "builders" => [
+                        "Owner",
+                        "Leader",
+                        "Developer",
+                        "Builder",
+                        "Hl.Builder",
+                        "El.Builder",
+                        "Zk.Builder",
                     ]
+            ];
+
+            $statuses = [
+                "waiting" => [
+                    "Čekání na odpověď"
+                ],
+                "done" => [
+                    "Vyřešeno"
+                ],
+                "waiting-to-player" => [
+                    "Čekání na odpověď hráče"
+                ]
             ];
 
         if (in_array($_SESSION["BungeeRank"], $rank["helpers"])) {
@@ -66,10 +95,24 @@
                         while ($row = mysqli_fetch_array($result)) {
                             echo "<tr>
                             <td>". $row["id"] ."</td>
-                            <td>Test4345</td>
-                            <td>Povolit VPN</td>
-                            <td><button class=\"btn btn-warning\">Čekání na odpoveď ATeamu</button></td>
-                        </tr>";
+                            <td>". $row["player"] ."</td>
+                            <td>" . $row["reason"] ."</td>";
+                            if (in_array($row["status"], $statuses["waiting"])) {
+                                echo "<td><button class=\"btn btn-warning\">";
+                                print_r($row["status"]);
+                                echo "</button></td>";
+                            }
+                            if (in_array($row["status"], $statuses["done"])) {
+                                echo "<td><button class=\"btn btn-success\">";
+                                print_r($row["status"]);
+                                echo "</button></td>";
+                            }
+                            if (in_array($row["status"], $statuses["waiting-to-player"])) {
+                                echo "<td><button class=\"btn btn-primary\">";
+                                print_r($row["status"]);
+                                echo "</button></td>";
+                            }
+    
                         }
 
                         echo "</tr>
