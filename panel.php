@@ -2,6 +2,7 @@
 <html lang="cz">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./src/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="./src/css/image.css">
     <link rel="stylesheet" href="./src/css/main.css">
@@ -14,6 +15,58 @@
     <div>
         <?php session_start();
 
+        $rank = [
+            "full" => [
+                "Owner",
+                "Leader",
+                "Developer"
+            ],
+            "helpers" => [
+                "Owner",
+                "Leader",
+                "Developer",
+                "Hl.Helper",
+                "El.Helper",
+                "Helper",
+                "Zk.Helper"
+            ],
+            "builders" => [
+                "Owner",
+                "Leader",
+                "Developer",
+                "Builder",
+                "Hl.Builder",
+                "El.Builder",
+                "Zk.Builder",
+            ],
+            "vip_active" => [
+                "Owner",
+                "Leader",
+                "Developer",
+                "Hl.Helper",
+                "El.Helper",
+                "Helper",
+                "Zk.Helper",
+                "Builder",
+                "Hl.Builder",
+                "El.Builder",
+                "Zk.Builder",
+                "VIP",
+                "King",
+            ]
+        ];
+
+        $statuses = [
+            "waiting" => [
+                "Čekání na odpověď"
+            ],
+            "done" => [
+                "Vyřešeno"
+            ],
+            "waiting-to-player" => [
+                "Čekání na odpověď hráče"
+            ]
+        ];
 
 
             if (isset($_SESSION["BungeeUUID"])) {
@@ -34,53 +87,64 @@
                 header("Location: index.php?error=NOLogged");
             }
         ?>
+
+        
+        <div class="info">
+            <h3 class="center">Základní informace</h3>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nick:</th>
+                        <th>Rank:</th>
+                        <th>VIP výhody:</th>
+                        <th>Coins:</th>
+                        <th>AutoLogin:</th>
+                        <th>UUID:</th>
+                        <th>Crate:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo $_SESSION["BungeeName"] ?></td>
+                        <td><?php echo $_SESSION["BungeeRank"] ?></td>
+                        <td>
+                            <?php 
+                            
+                            if (in_array($_SESSION["BungeeRank"], $rank["vip_active"])) {
+                                echo "<button class=\"btn bg-success text-light\">Yes</button>";
+                            } else {
+                                echo "<button class=\"btn bg-danger text-light\">No</button>";
+                            }
+                            
+                            ?>
+                        </td>
+                        <td>0</td>
+                        
+                        <td>
+                        <form action="./panel.php" method="post">
+                                <input type="submit" value="No" name="submit" class="bg-danger btn text-light p-1">
+                            </form>
+                            
+                            </td>
+                        <td><?php echo $_SESSION["BungeeUUID"] ?></td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+
     </div>
 
 
         <?php
 
-            $rank = [
-                    "full" => [
-                        "Owner",
-                        "Leader",
-                        "Developer"
-                    ],
-                    "helpers" => [
-                        "Owner",
-                        "Leader",
-                        "Developer",
-                        "Hl.Helper",
-                        "El.Helper",
-                        "Helper",
-                        "Zk.Helper"
-                    ],
-                    "builders" => [
-                        "Owner",
-                        "Leader",
-                        "Developer",
-                        "Builder",
-                        "Hl.Builder",
-                        "El.Builder",
-                        "Zk.Builder",
-                    ]
-            ];
-
-            $statuses = [
-                "waiting" => [
-                    "Čekání na odpověď"
-                ],
-                "done" => [
-                    "Vyřešeno"
-                ],
-                "waiting-to-player" => [
-                    "Čekání na odpověď hráče"
-                ]
-            ];
 
         if (in_array($_SESSION["BungeeRank"], $rank["helpers"])) {
             echo "<div class=\"tickets-list\">
-                <table class=\"table table-striped\" style=\"width: 40rem;\">
-                    <thead>
+                <table class=\"table table-striped table-bordered table-hover\">
+                    <thead class=\"table-dark\">
                         <tr>
                             <th>ID:</th>
                             <th>Player:</th>
