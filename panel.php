@@ -133,7 +133,50 @@
             </table>
         </div>
         
-
+        <div class="stats">
+            <h3 class="center">Statistiky</h3>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>MiniGame</th>
+                    <th>Kills</th>
+                    <th>Deaths</th>
+                    <th>Wins</th>
+                    <th>Loses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LuckyWars</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                </tr>
+                    <tr>
+                    <td>GetDown</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                </tr>
+                    <tr>
+                    <td>Cores</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                </tr>
+                    <tr>
+                    <td>GoldRush</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 
