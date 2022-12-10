@@ -29,6 +29,47 @@
             echo "</nav>";
         ?>
     </div>
+    <?php 
+    
+    if ($_SESSION["BungeeRank"] == "Majitel") {
+        echo "    <div class=\"tickets-list\">
+        <table class=\"table table-striped\" style=\"width: 40rem;\">
+            <thead>
+                <tr>
+                    <th>ID:</th>
+                    <th>Player:</th>
+                    <th>Reason:</th>
+                    <th>Status:</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                    <td>1</td>
+                    <td>Test</td>
+                    <td>Povolit VPN</td>
+                    <td><button class=\"btn btn-warning\">Čekání na odpoveď ATeamu</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Test323</td>
+                    <td>Povolit VPN</td>
+                    <td><button class=\"btn btn-warning\">Čekání na odpoveď ATeamu</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Test4345</td>
+                    <td>Povolit VPN</td>
+                    <td><button class=\"btn btn-warning\">Čekání na odpoveď ATeamu</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>";
+    } else {
+        return;
+    }
+    
+    ?>
+
 
 </body>
 </html>
