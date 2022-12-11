@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="./src/css/ranks.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIdecon.eu | InfoPanel</title>
+    <title>Midecon.eu | InfoPanel</title>
+    <!-- 
+
+          Midecon.eu     
+        @author: Drven
+
+     -->
 </head>
 <body>
     <div>
@@ -22,27 +28,18 @@
                 "Developer"
             ],
             "helpers" => [
-                "Owner",
-                "Leader",
-                "Developer",
                 "Hl.Helper",
                 "El.Helper",
                 "Helper",
                 "Zk.Helper"
             ],
             "builders" => [
-                "Owner",
-                "Leader",
-                "Developer",
                 "Builder",
                 "Hl.Builder",
                 "El.Builder",
                 "Zk.Builder",
             ],
             "vip_active" => [
-                "Owner",
-                "Leader",
-                "Developer",
                 "Hl.Helper",
                 "El.Helper",
                 "Helper",
@@ -68,20 +65,24 @@
             ]
         ];
 
+        $rank["helpers"] = array_merge($rank["full"], $rank["helpers"]);
+        $rank["builders"] = array_merge($rank["full"], $rank["builders"]);
+        $rank["vip_active"] = array_merge($rank["full"], $rank["vip_active"]);
+
 
             if (isset($_SESSION["BungeeUUID"])) {
 
                 echo "<nav class='navigation'>";
-                echo "<div class='logo'>";
-                echo "<img src='./src/images/logo.png' alt='Logo'>";
-                echo "</div>";
-                echo "<div class='card-infopanel'>";
-                echo "<img src=\"https://visage.surgeplay.com/bust/96/". $_SESSION["BungeeUUID"] ."\" alt=\"Logo\">";
-                echo "<div class='card-infopanel-text'>";
-                echo "<p>".$_SESSION["BungeeName"]. "</p>";
-                echo "<p class=" . $_SESSION["BungeeRank"] . ">". $_SESSION["BungeeRank"], "</p>";
-                echo "</div>";
-                echo "</div>";
+                echo "  <div class='logo'>";
+                echo "      <img src='./src/images/logo.png' alt='Logo'>";
+                echo "  </div>";
+                echo "  <div class='card-infopanel'>";
+                echo "      <img src=\"https://visage.surgeplay.com/bust/96/". $_SESSION["BungeeUUID"] ."\" alt=\"Logo\">";
+                echo "      <div class='card-infopanel-text'>";
+                echo "          <p>".$_SESSION["BungeeName"]. "</p>";
+                echo "          <p class=" . $_SESSION["BungeeRank"] . ">". $_SESSION["BungeeRank"], "</p>";
+                echo "      </div>";
+                echo "  </div>";
                 echo "</nav>";
             } else {
                 header("Location: index.php?error=NOLogged");
@@ -90,13 +91,13 @@
 
         
         <div class="info">
-            <h3 class="center">Základní informace</h3>
+            <h3 class="center">Account's information</h3>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>Nick:</th>
                         <th>Rank:</th>
-                        <th>VIP výhody:</th>
+                        <th>VIP benefits:</th>
                         <th>Coins:</th>
                         <th>AutoLogin:</th>
                         <th>UUID:</th>
@@ -134,7 +135,7 @@
         </div>
         
         <div class="stats">
-            <h3 class="center">Statistiky</h3>
+            <h3 class="center">Stats</h3>
         <table class="table table-striped table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
@@ -147,28 +148,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>LuckyWars</td>
+                        <td>LuckyWars</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                 </tr>
                     <tr>
-                    <td>GetDown</td>
+                        <td>GetDown</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                 </tr>
                     <tr>
-                    <td>Cores</td>
+                        <td>Cores</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
-                </tr>
-                    <tr>
-                    <td>GoldRush</td>
+                    </tr>
+                <tr>
+                        <td>GoldRush</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
@@ -225,9 +226,7 @@
                         echo "</tr>
                         </tbody>
                     </table>
-                </div>";
-
-                             
+                </div>";             
             }
                     
             ?>
