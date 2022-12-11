@@ -1,3 +1,9 @@
+<?php include("./classes/config.class.php");
+
+    $config = new config();
+
+?>
+
 <!DOCTYPE html>
 <html lang="cz">
 <head>
@@ -110,7 +116,8 @@
                         <td><?php echo $_SESSION["BungeeRank"] ?></td>
                         <td>
                             <?php 
-                            
+                        
+
                             if (in_array($_SESSION["BungeeRank"], $rank["vip_active"])) {
                                 echo "<button class=\"btn bg-success text-light\">Yes</button>";
                             } else {
