@@ -6,7 +6,6 @@ class config {
         header("Location: ". $url);
     }
 
-
     public $messages = [
         "success_message" => "Nastavení ticketu bylo úspěšné!",
         "custom_error" => "Někde nastala chyba!",
