@@ -5,6 +5,7 @@ class config {
     function location($url) {
         header("Location: ". $url);
     }
+    
 
     public $messages = [
         "success_message" => "Nastavení ticketu bylo úspěšné!",
