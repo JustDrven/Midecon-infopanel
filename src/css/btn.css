@@ -1,0 +1,18 @@
+.administrace {
+    margin: auto;
+    width: 12rem;
+    display: block;
+    padding: 0.7rem;
+  }
+
+  .administrace button {
+    width: 100%;
+    margin: 1rem 0;
+    border: 0;
+    background: #212529;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    padding: 1rem;
+    border-radius: 0.7777777rem;
+  }
