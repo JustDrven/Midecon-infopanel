@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./src/css/image.css">
     <link rel="stylesheet" href="./src/css/main.css">
     <link rel="stylesheet" href="./src/css/ranks.css">
+    <link rel="stylesheet" href="./src/css/btn.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Midecon.eu | InfoPanel</title>
@@ -98,6 +99,7 @@
         
         <div class="info">
             <h3 class="center">Account's information</h3>
+            <br>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
@@ -106,7 +108,6 @@
                         <th>VIP benefits:</th>
                         <th>Coins:</th>
                         <th>AutoLogin:</th>
-                        <th>UUID:</th>
                         <th>Crate:</th>
                     </tr>
                 </thead>
@@ -134,7 +135,6 @@
                             </form>
                             
                             </td>
-                        <td><?php echo $_SESSION["BungeeUUID"] ?></td>
                         <td>0</td>
                     </tr>
                 </tbody>
@@ -143,6 +143,7 @@
         
         <div class="stats">
             <h3 class="center">Stats</h3>
+            <br>
         <table class="table table-striped table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
@@ -187,56 +188,27 @@
         </div>
 
     </div>
-
-
-        <?php
-
+    <?php 
 
         if (in_array($_SESSION["BungeeRank"], $rank["helpers"])) {
-            echo "<div class=\"tickets-list\">
-                <table class=\"table table-striped table-bordered table-hover\">
-                    <thead class=\"table-dark\">
-                        <tr>
-                            <th>ID:</th>
-                            <th>Player:</th>
-                            <th>Reason:</th>
-                            <th>Status:</th>
-                        </tr>
-                    </thead>
-                <tbody>";
-                        $connected = mysqli_connect("localhost", "root", "", "tickets-list");
-                        $result = mysqli_query($connected, "SELECT * FROM `list`");
-
-                        while ($row = mysqli_fetch_array($result)) {
-                            echo "<tr>
-                            <td>". $row["id"] ."</td>
-                            <td>". $row["player"] ."</td>
-                            <td>" . $row["reason"] ."</td>";
-                            if (in_array($row["status"], $statuses["waiting"])) {
-                                echo "<td><button class=\"btn btn-warning\">";
-                                print_r($row["status"]);
-                                echo "</button></td>";
-                            }
-                            if (in_array($row["status"], $statuses["done"])) {
-                                echo "<td><button class=\"btn btn-success\">";
-                                print_r($row["status"]);
-                                echo "</button></td>";
-                            }
-                            if (in_array($row["status"], $statuses["waiting-to-player"])) {
-                                echo "<td><button class=\"btn btn-primary\">";
-                                print_r($row["status"]);
-                                echo "</button></td>";
-                            }
+            echo "  <h3 class=\"center\">Administration</h3>";
+            echo "  <br>";
+            echo "<div class=\"administrace\">";
+            echo "    <a href=\"./tickets/ticket.php\">
+            <button>
+                Tickets
+            </button>
+        </a><br>
+            <button>BanList</button><br>
+            <button>Reports</button>";
+            echo "</div>";
+        }
     
-                        }
+    ?>
 
-                        echo "</tr>
-                        </tbody>
-                    </table>
-                </div>";             
-            }
-                    
-            ?>
+
+
+
 
 </body>
 </html>
